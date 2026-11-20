@@ -56,9 +56,40 @@ def main():
     dumpling_machines = machines_needed(
         line_capacity, dumpling_machine_capacity
     )
-    
-    print("\nСпасибо за использование программы!")
-    print("Расчёт оборудования линии пельменей успешно завершён.")
+
+    # II. Линия подготовки теста
+    dough_capacity = dough_share * line_capacity / 100
+    mixers = machines_needed(dough_capacity, mixer_capacity)
+
+    # III. Линия подготовки фарша
+    # По методичке доля фарша равна 100% - доля теста.
+    meat_share = 100 - dough_share
+    meat_capacity = meat_share * line_capacity / 100
+    cutters = machines_needed(meat_capacity, cutter_capacity)
+
+    # Вывод результатов
+    print("\n" + "=" * 55)
+    print(" РЕЗУЛЬТАТЫ РАСЧЁТА")
+    print("=" * 55)
+
+    print("\nI. Технологическая линия изготовления пельменей")
+    print(f"Производительность линии: {line_capacity:.3f} т/ч")
+    print(f"Количество пельменных автоматов: {dumpling_machines} шт.")
+
+    print("\nII. Технологическая линия подготовки теста")
+    print(f"Массовая доля теста: {dough_share:.2f} %")
+    print(f"Производительность линии: {dough_capacity:.3f} т/ч")
+    print(f"Количество тестомесильных машин: {mixers} шт.")
+
+    print("\nIII. Технологическая линия подготовки фарша")
+    print(f"Массовая доля фарша: {meat_share:.2f} %")
+    print(f"Производительность линии: {meat_capacity:.3f} т/ч")
+    print(f"Количество куттеров: {cutters} шт.")
+
+    print("\n" + "=" * 55)
+    print("Расчёт завершён.")
+    print("=" * 55)
+
 
 if __name__ == "__main__":
     main()
