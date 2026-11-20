@@ -56,6 +56,9 @@ def main():
     dumpling_machines = machines_needed(
         line_capacity, dumpling_machine_capacity
     )
+    
+    print("\nСпасибо за использование программы!")
+    print("Расчёт оборудования линии пельменей успешно завершён.")
 
     # II. Линия подготовки теста
     dough_capacity = dough_share * line_capacity / 100
