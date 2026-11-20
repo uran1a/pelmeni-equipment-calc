@@ -18,8 +18,8 @@ def read_float(prompt, min_value=None, max_value=None):
 
 
 def machines_needed(line_capacity, machine_capacity):
-    """Количество машин с округлением вверх."""
-    return math.ceil(line_capacity / machine_capacity)
+    """Количество машин с округлением вниз."""
+    return math.floor(line_capacity / machine_capacity)
 
 
 def main():
